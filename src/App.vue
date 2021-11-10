@@ -1,50 +1,16 @@
 <template>
   <div id="app">
-    <section>
-      <h3>Example 1</h3>
-      <div>Data: {{ example1 }}</div>
-      <button @click="getLanguage">Get Language</button>
-    </section>
-
-    <section>
-      <h3>Example 2</h3>
-      <div>
-        Data:
-        <div v-for="champion in champions" :key="champion.name">
-          {{ champion }}
-        </div>
-      </div>
-      <button @click="getChampions">Get Champions</button>
-    </section>
-
-    <section>
-      <h3>Example 3</h3>
-      <div>
-        Data:
-        {{ champion }}
-      </div>
-      <button @click="getChampionByName">Get Champion</button>
-    </section>
-
-
-    <section>
-      <h3>Example 4</h3>
-      Name: <input v-model="name">
-      Attack Damage: <input v-model.number="attack">
-      <div>
-        Data:
-        {{ updatedChampion }}
-      </div>
-      <button @click="updateAttackDamage">Update Champion</button>
-    </section>
+    <app-category />
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import AppCategory from "@/components/AppCategory";
 
 export default {
   name: 'App',
+  components: {AppCategory},
   data() {
     return {
       example1: '',
@@ -116,3 +82,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  #app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+</style>
